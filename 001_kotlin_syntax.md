@@ -1,9 +1,50 @@
+## **1. Data types**
+- Kiểu số thực: Muốn khai báo kiểu `Float` thì thêm `f` hoặc `F`
+```kotlin
+val e = 2.7182818284 // Double
+val eFloat = 2.7182818284f // Float, actual value is 2.7182817
+```
+- Có thể thêm dấu `_` để số dễ đọc hơn
+```kotlin
+val oneMillion = 1_000_000
+val creditCardNumber = 1234_5678_9012_3456L
+val hexBytes = 0xFF_EC_DE_5E
+val bytes = 0b11010010_01101001_10010100_10010010
+```
+
+- Nullable type:
+```kotlin
+fun main() {
+    val a: Int = 100
+    val boxedA: Int? = a
+    val anotherBoxedA: Int? = a
+
+    val b: Int = 10000
+    val boxedB: Int? = b
+    val anotherBoxedB: Int? = b
+
+    println(boxedA === anotherBoxedA) // true
+    println(boxedB === anotherBoxedB) // false
+    println(boxedB == anotherBoxedB) // true
+}
+```
+> Nếu giá trị Int vượt ngưỡng **boxing threshold**(ở đây là từ -128 đến 127) thì kotlin sẽ tạo 2 vùng nhớ khác nhau để lưu cùng 2 giá trị bằng nhau.
+
+- Nếu ta so sánh 2 giá trị bằng nhau nhưng khác kiểu dữ liệu thì sẽ bị lỗi.
+- Ép kiểu:
+```kotlin
+fun main() {
+    val b: Byte = 1 
+    val i1: Int = b.toInt()
+}
+```
+## **2. Biến**
 - val :  value (read-only value)
 - var :  variable (mutable value)
 
-val a = 1
+val a = 1  
 val a : Int  
-## **2. Function**
+## **3. Function**
 - Syntax:
 ```kotlin
 fun function_name (parameter_name : parameter_type) : function_type {/*...*/}
@@ -70,7 +111,7 @@ val l = b?.length ?: -1
 - a === b: true nếu a, b cùng trỏ đến 1 đối tượng.  
 - Đối với primitive types thì === tương đương với ==.
 
-## **3. Condition**
+## **4. Condition**
 
 ```kotlin
 if (a > b) {
@@ -90,7 +131,7 @@ val maxOrLimit = if (maxLimit > a) maxLimit else if (a > b) a else b
 - when tương tự switch-case nhưng không cần lệnh break.
 - when có thể sử dụng như `expression` hoặc `statement`.
 
-## **4. Loop**
+## **5. Loop**
 ### 4.1 Repeat
 - 1 vòng lặp
 - Nhiều vòng lặp
@@ -142,7 +183,7 @@ loop@ for (i in 1..100) {
 }
 ```
 
-# **Collections**
+# **6.Collections**
 - Gồm List, Set, Map
 
 - Collection<`T`> : read-only.
