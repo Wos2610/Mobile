@@ -1,4 +1,5 @@
 ## **1. Data types**
+### Kiểu số
 - Kiểu số thực: Muốn khai báo kiểu `Float` thì thêm `f` hoặc `F`
 ```kotlin
 val e = 2.7182818284 // Double
@@ -38,8 +39,17 @@ fun main() {
     val i1: Int = b.toInt()
 }
 ```
+### Kiểu String
+- String là immutable.
+- Những hàm mà thay đổi String thì sẽ trả kết quả về một String mới và String ban đầu sẽ không bị thay đổi.
+- String template
+```kotlin
+val s = "abc"
+println("$s.length is ${s.length}") // Prints "abc.length is 3"
+```
 ## **2. Biến**
 - val :  value (read-only value)
+> Khác nhau giữa value và constant: constant(compile time), value(runtime)
 - var :  variable (mutable value)
 
 val a = 1  
