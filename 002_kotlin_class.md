@@ -21,7 +21,7 @@
 - `public`: Bất kì client nào mà thấy được declaration this class thì có thể thấy `public` members của class này.
 
 ## **3.Constructor**
-- Có một `primary constructor` và một hoặc hơn `secondary constructor`
+- Có một `primary constructor` và một hoặc nhiều hơn `secondary constructor`
 
 ### Primary Constructor
 ```kotlin
@@ -141,18 +141,55 @@ fun main(){
 ## **5. Enum Class**
 
 ```kotlin
-enum class Direction {
-    NORTH, SOUTH, WEST, EAST
+enum class Fruit {
+    WATERMELON, JACKFRUIT, MANGOSTEEN
+}
+```
+
+### Anonymous Class
+- Là class mà không được khai báo bằng keyword `class`, thường sử dụng một lần.
+- Enum constants có thể khởi tạo bằng anonymous class với các phương thức riêng của chúng. Các constants được phân cách với các member khác bằng dấu `;`, giữa các constant là dấu `,`
+``` kotlin
+enum class ProtocolState {
+    WAITING {
+        override fun signal() = TALKING
+    },
+
+    TALKING {
+        override fun signal() = WAITING
+    };
+
+    abstract fun signal(): ProtocolState
 }
 ```
 
 ## **6. Nested Class**
 - Là một class được khởi tạo trong một class khác.
+```kotlin
+class Outer {
+    private val bar: Int = 1
+    class Nested {
+        fun foo() = 2
+    }
+}
+val demo = Outer.Nested().foo() // == 2
+```
 - **Nested class** không thể truy cập đến **Outer class** members.
 - Ta có thể sử dụng các members của **Nested class** mà không phải tạo **object** cụ thể.
 
 ## **7. Inner Class**
 - Là một **Nested class** nhưng có thêm từ khóa `inner`, giúp **Nested class** có thể truy cập đến các members của **Outer class** (kể cả `private`).
+
+```kotlin
+class Outer {
+    private val bar: Int = 1
+    inner class Inner {
+        fun foo() = bar
+    }
+}
+
+val demo = Outer().Inner().foo() // == 1
+```
 
 
 

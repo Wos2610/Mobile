@@ -42,7 +42,7 @@ fun main() {
 ### Kiểu String
 - String là immutable.
 - Những hàm mà thay đổi String thì sẽ trả kết quả về một String mới và String ban đầu sẽ không bị thay đổi.
-- String template
+- String template:
 ```kotlin
 val s = "abc"
 println("$s.length is ${s.length}") // Prints "abc.length is 3"
@@ -51,9 +51,16 @@ println("$s.length is ${s.length}") // Prints "abc.length is 3"
 - val :  value (read-only value)
 > Khác nhau giữa value và constant: constant(compile time), value(runtime)
 - var :  variable (mutable value)
-
+```kotlin
 val a = 1  
-val a : Int  
+val a : Int
+```
+
+- `const value`: tương tự const trong C++ nhưng bắt buộc khai báo top-level.
+
+- Số nguyên thì mặc định Int, số thực thì mặc định là Double.
+
+- Ép kiểu: sử dụng các hàm toInt(), toString(),...
 ## **3. Function**
 - Syntax:
 ```kotlin
@@ -112,6 +119,8 @@ val l = b?.length ?: -1
 ```
 - Nếu bên trái `?:` != null thì return trái, còn nếu bên trái = null thì return bên phải.
 
+**Safe Casts**
+
 
 ## **Equality**
 ### Structural quality
@@ -139,7 +148,7 @@ val maxOrLimit = if (maxLimit > a) maxLimit else if (a > b) a else b
 ```
 
 - when tương tự switch-case nhưng không cần lệnh break.
-- when có thể sử dụng như `expression` hoặc `statement`.
+- when có thể sử dụng như **expression** hoặc **statement**.
 
 ## **5. Loop**
 ### 4.1 Repeat
@@ -193,6 +202,11 @@ loop@ for (i in 1..100) {
 }
 ```
 
+### 4.5 Repeat
+```kotlin
+repeat(time:Int, action(Int) : Unit)
+```
+
 # **6.Collections**
 - Gồm List, Set, Map
 
@@ -228,6 +242,16 @@ println("Index of element \"two\" ${numbers.indexOf("two")}")
 Third element: three
 Fourth element: four
 Index of element "two" 1 */
+```
+- Khởi tạo mảng ban đầu:
+```kotlin
+val doubled = List(3, { it * 2 })  
+    println(doubled)
+```
+
+- Tạo một list mới giống list cũ nhưng không tham chiếu đến list ban đầu
+``` kotlin
+list.toList()
 ```
 
 *Set<`T`>

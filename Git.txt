@@ -1,0 +1,7 @@
+C:\Users\LENOVO T480s>git clone https://github.com/proptit-mobile-d21/000-git.git 
+C:\Users\LENOVO T480s>cd 000-git 
+C:\Users\LENOVO T480s\000-git>git checkout -b ThuyNTN 
+C:\Users\LENOVO T480s\000-git>git rm HMDUNG.md 
+C:\Users\LENOVO T480s\000-git>git add readme.md 
+C:\Users\LENOVO T480s\000-git>git commit -m "Commit" 
+C:\Users\LENOVO T480s\000-git>git push origin ThuyNTN
